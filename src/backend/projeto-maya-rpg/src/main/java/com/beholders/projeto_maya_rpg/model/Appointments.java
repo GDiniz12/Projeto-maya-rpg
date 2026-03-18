@@ -12,10 +12,18 @@ public class Appointments {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "appointment_datetime")
+    @Column(name = "appointment_datetime", nullable = false)
     private LocalDateTime appointmentDatetime;
 
     private String notes;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "patient_id", nullable = false)
+    private Patient patient;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "admin_id", nullable = false)
+    private Admin admin;
 
     public Appointments() {
 

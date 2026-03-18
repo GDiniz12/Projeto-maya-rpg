@@ -13,21 +13,29 @@ public class Messages {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private SenderType senderType;
 
+    @Column(nullable = false)
     private String message;
 
     @Column(name = "sent_at")
-    private LocalTime sentAt;
+    private LocalDateTime sentAt;
 
-    /* verificar colunas e chaves estrangeiras e relacionamentos */
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "patient_id", nullable = false)
+    private Patient patient;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "admin_id", nullable = false)
+    private Admin admin;
 
     public Messages() {
 
     }
 
-    public Messages(Long id, SenderType senderType, String message, LocalTime sentAt) {
+    public Messages(Long id, SenderType senderType, String message, LocalDateTime sentAt) {
         this.id = id;
         this.senderType = senderType;
         this.message = message;
@@ -58,11 +66,11 @@ public class Messages {
         this.message = message;
     }
 
-    public LocalTime getSentAt() {
+    public LocalDateTime getSentAt() {
         return sentAt;
     }
 
-    public void setSentAt(LocalTime sentAt) {
+    public void setSentAt(LocalDateTime sentAt) {
         this.sentAt = sentAt;
     }
 }

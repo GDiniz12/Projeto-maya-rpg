@@ -4,6 +4,7 @@ import com.beholders.projeto_maya_rpg.model.enums.Status;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name="plans")
@@ -12,13 +13,23 @@ public class Plan {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name="created_at")
+    @Column(name="created_at", nullable = false)
     private LocalDateTime createdAt;
 
+    @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private Status status;
 
-    /* verificar colunas e chaves estrangeiras e relacionamentos */
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "patient_id", nullable = false)
+    private Patient patient;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "admin_id", nullable = false)
+    private Admin admin;
+
+    @OneToMany(mappedBy = "plan", cascade = CascadeType.ALL)
+    private List<PlanExercises> planExercises;
 
     public Plan() {
 

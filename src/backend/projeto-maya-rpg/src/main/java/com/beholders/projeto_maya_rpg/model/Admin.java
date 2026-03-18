@@ -3,6 +3,8 @@ package com.beholders.projeto_maya_rpg.model;
 import com.beholders.projeto_maya_rpg.model.enums.Status;
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name="admins")
 public class Admin {
@@ -10,14 +12,27 @@ public class Admin {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false)
     private String name;
+
+    @Column(nullable = false, unique = true)
     private String email;
 
-    @Column (name="password_hash")
+    @Column(name="password_hash", nullable = false)
     private String passwordHash;
 
+    @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private Status status;
+
+    @OneToMany(mappedBy = "admin")
+    private List<Plan> plans;
+
+    @OneToMany(mappedBy = "admin")
+    private List<Messages> messages;
+
+    @OneToMany(mappedBy = "admin")
+    private List<MedicalRecords> records;
 
     public Admin(){
 

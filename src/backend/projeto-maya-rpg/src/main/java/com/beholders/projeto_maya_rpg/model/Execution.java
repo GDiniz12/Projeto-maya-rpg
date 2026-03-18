@@ -11,17 +11,20 @@ public class Execution {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "executed_at")
+    @Column(name = "executed_at", nullable = false)
     private LocalDateTime executedAt;
 
-    private boolean completed = true;
+    @Column(nullable = false)
+    private boolean completed;
 
     @Column(name = "pain_scale")
     private int painScale;
 
     private String notes;
 
-    /* verificar colunas e chaves estrangeiras e relacionamentos */
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "plan_exercise_id", nullable = false)
+    private PlanExercises planExercise;
 
     public Execution() {
 

@@ -1,6 +1,7 @@
 package com.beholders.projeto_maya_rpg.model;
 
 import jakarta.persistence.*;
+import java.util.List;
 
 @Entity
 @Table (name = "plan_exercises")
@@ -9,12 +10,22 @@ public class PlanExercises {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false)
     private String frequency;
 
     @Column(name = "specific_notes")
     private String specificNotes;
 
-    /* verificar colunas e chaves estrangeiras e relacionamentos */
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "plan_id", nullable = false)
+    private Plan plan;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "exercise_id", nullable = false)
+    private Exercise exercise;
+
+    @OneToMany(mappedBy = "planExercise", cascade = CascadeType.ALL)
+    private List<Execution> executions;
 
     public PlanExercises() {
 

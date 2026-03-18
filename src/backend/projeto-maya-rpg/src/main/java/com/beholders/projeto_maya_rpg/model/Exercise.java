@@ -10,11 +10,13 @@ public class Exercise {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false)
     private String name;
 
-    @Column (name="exercise_description")
+    @Column(name="exercise_description", nullable = false)
     private String exerciseDescription;
 
+    @Column(nullable = false)
     private String instructions;
 
     /* verificar colunas e chaves estrangeiras e relacionamentos */

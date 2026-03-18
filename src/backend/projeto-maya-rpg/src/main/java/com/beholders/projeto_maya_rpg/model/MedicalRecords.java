@@ -17,7 +17,13 @@ public class MedicalRecords {
     @Column(name = "recorded_at")
     private LocalDateTime recordedAt;
 
-    /* verificar colunas e chaves estrangeiras e relacionamentos */
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "patient_id", nullable = false)
+    private Patient patient;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "admin_id", nullable = false)
+    private Admin admin;
 
     public MedicalRecords() {
 

@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "patients")
@@ -14,33 +15,45 @@ public class Patient {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false)
     private String name;
+
+    @Column(nullable = false, unique = true)
     private String email;
 
-    @Column (name="password_hash")
-    private String password;
+    @Column(name="password_hash", nullable = false)
+    private String passwordHash;
 
-    @Column (name="phone_number")
+    @Column(name="phone_number", nullable = false)
     private String phoneNumber;
 
+    @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private Status status;
 
-    @Column (name="birth_date")
+    @Column(name="birth_date", nullable = false)
     private LocalDate birthDate;
 
     @Column (name="created_at")
     private LocalDateTime createdAt;
 
+    @OneToMany(mappedBy = "patient")
+    private List<Plan> plans;
+
+    @OneToMany(mappedBy = "patient")
+    private List<Messages> messages;
+
+    @OneToMany(mappedBy = "patient")
+    private List<MedicalRecords> records;
 
     public Patient() {
     }
 
-    public Patient(Long id, String name, String email, String password, String phoneNumber, Status status, LocalDate birthDate, LocalDateTime createdAt) {
+    public Patient(Long id, String name, String email, String passwordHash, String phoneNumber, Status status, LocalDate birthDate, LocalDateTime createdAt) {
         this.id = id;
         this.name = name;
         this.email = email;
-        this.password = password;
+        this.passwordHash = passwordHash;
         this.phoneNumber = phoneNumber;
         this.status = status;
         this.birthDate = birthDate;
@@ -71,12 +84,12 @@ public class Patient {
         this.email = email;
     }
 
-    public String getPassword() {
-        return password;
+    public String getPasswordHash() {
+        return passwordHash;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setPasswordHash(String password) {
+        this.passwordHash = passwordHash;
     }
 
     public String getPhoneNumber() {

@@ -35,7 +35,8 @@
                     android:layout_height="wrap_content"
                     android:text="Olá,"
                     android:textColor="@color/white"
-                    android:textSize="18sp"/>
+                    android:textSize="18sp"
+                    android:fontFamily="@font/roboto_medium"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -50,7 +51,8 @@
                     android:layout_height="wrap_content"
                     android:text="sábado, 09 de fevereiro"
                     android:textColor="@color/lightgrey"
-                    android:textSize="14sp"/>
+                    android:textSize="14sp"
+                    android:fontFamily="@font/roboto_medium"/>
 
             </LinearLayout>
 

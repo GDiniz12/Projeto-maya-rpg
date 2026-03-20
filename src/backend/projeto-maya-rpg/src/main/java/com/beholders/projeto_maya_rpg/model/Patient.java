@@ -1,12 +1,19 @@
 package com.beholders.projeto_maya_rpg.model;
 
 import com.beholders.projeto_maya_rpg.model.enums.Status;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
+@Getter
+@Setter
+@NoArgsConstructor
 @Entity
 @Table(name = "patients")
 public class Patient {
@@ -21,20 +28,21 @@ public class Patient {
     @Column(nullable = false, unique = true)
     private String email;
 
-    @Column(name="password_hash", nullable = false)
+    @JsonIgnore
+    @Column(name = "password_hash", nullable = false)
     private String passwordHash;
 
-    @Column(name="phone_number", nullable = false)
+    @Column(name = "phone_number", nullable = false)
     private String phoneNumber;
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private Status status;
 
-    @Column(name="birth_date", nullable = false)
+    @Column(name = "birth_date", nullable = false)
     private LocalDate birthDate;
 
-    @Column (name="created_at")
+    @Column(name = "created_at", updatable = false)
     private LocalDateTime createdAt;
 
     @OneToMany(mappedBy = "patient")
@@ -46,80 +54,8 @@ public class Patient {
     @OneToMany(mappedBy = "patient")
     private List<MedicalRecords> records;
 
-    public Patient() {
-    }
-
-    public Patient(Long id, String name, String email, String passwordHash, String phoneNumber, Status status, LocalDate birthDate, LocalDateTime createdAt) {
-        this.id = id;
-        this.name = name;
-        this.email = email;
-        this.passwordHash = passwordHash;
-        this.phoneNumber = phoneNumber;
-        this.status = status;
-        this.birthDate = birthDate;
-        this.createdAt = createdAt;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPasswordHash() {
-        return passwordHash;
-    }
-
-    public void setPasswordHash(String password) {
-        this.passwordHash = passwordHash;
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    public Status getStatus() {
-        return status;
-    }
-
-    public void setStatus(Status status) {
-        this.status = status;
-    }
-    public LocalDate getBirthDate() {
-        return birthDate;
-    }
-
-    public void setBirthDate(LocalDate birthDate) {
-        this.birthDate = birthDate;
-    }
-
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
+    @PrePersist
+    public void prePersist() {
+        this.createdAt = LocalDateTime.now();
     }
 }

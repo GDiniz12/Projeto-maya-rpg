@@ -1,7 +1,9 @@
 package com.beholders.projeto_maya_rpg.controller;
 
+import com.beholders.projeto_maya_rpg.dto.LoginRequestDTO;
 import com.beholders.projeto_maya_rpg.model.Patient;
 import com.beholders.projeto_maya_rpg.service.PatientService;
+import com.beholders.projeto_maya_rpg.service.TokenService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
@@ -15,9 +17,11 @@ import java.net.URI;
 public class PatientController {
 
     private final PatientService patientService;
+    private final TokenService tokenService;
 
-    public PatientController(PatientService patientService) {
+    public PatientController(PatientService patientService, TokenService tokenService) {
         this.patientService = patientService;
+        this.tokenService = tokenService;
     }
 
     @GetMapping
@@ -42,10 +46,12 @@ public class PatientController {
     }
 
     @PostMapping("/login")
-    public String login(@RequestBody String email, @RequestBody String password) {
-        Patient patient = patientService.getByEmail(email);
+    public ResponseEntity<String> login(@RequestBody LoginRequestDTO loginData) {
+        Patient isAuth = patientService.verifyPatient(loginData.getEmail(), loginData.getPassword());
 
+        String token = tokenService.generateToken(isAuth);
 
+        return ResponseEntity.ok(token);
     }
 
     @DeleteMapping("/{id}")

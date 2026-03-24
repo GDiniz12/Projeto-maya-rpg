@@ -29,14 +29,14 @@ public class PatientService {
                 .orElseThrow(() -> new ResourceNotFoundException("Patient not found with id: " + id));
     }
 
-    public boolean verifyPatient(String email, String password) {
+    public Patient verifyPatient(String email, String password) {
         Patient patient = patientRepository.findByEmail(email)
                 .orElseThrow(() -> new ResourceNotFoundException("Invalid Credentials"));
         boolean isPasswordMatch = passwordEncoder.matches(password, patient.getPasswordHash());
-        if (isPasswordMatch) {
-            return true;
+        if (!isPasswordMatch) {
+            throw new ResourceNotFoundException("Invalid Credentials");
         }
-        return false;
+        return patient;
     }
 
     @Transactional

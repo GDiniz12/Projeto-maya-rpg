@@ -1,7 +1,6 @@
 package com.beholders.projeto_maya_rpg.model;
 
 import com.beholders.projeto_maya_rpg.model.enums.Status;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -30,7 +29,7 @@ public class Patient {
     private String email;
 
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    @Column(name = "password", nullable = false)
+    @Column(name = "password_hash", nullable = false)
     private String passwordHash;
 
     @Column(name = "phone_number", nullable = false)

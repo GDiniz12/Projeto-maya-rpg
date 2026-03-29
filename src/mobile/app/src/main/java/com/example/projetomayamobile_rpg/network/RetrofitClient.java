@@ -7,7 +7,7 @@ public class RetrofitClient {
 
     private static Retrofit instance;
 
-    private static final String BASE_URL = "https://backendbacanusho.com/api"; //NÃO ESQUECER DE ALTERAR O URL
+    private static final String BASE_URL = "https://projeto-maya-rpg-production.up.railway.app";
 
     public static Retrofit getInstance() {
         if (instance == null){

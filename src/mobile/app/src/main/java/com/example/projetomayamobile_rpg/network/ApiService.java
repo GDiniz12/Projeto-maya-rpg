@@ -10,6 +10,6 @@ import retrofit2.http.POST;
 
 public interface ApiService {
 
-    @POST("LOGIN") //alterar para o endpoint correto mais para frente
+    @POST("/patients/login")
     Call<LoginResponse> login(@Body LoginRequest body);
 }

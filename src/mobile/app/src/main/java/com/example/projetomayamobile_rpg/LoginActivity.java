@@ -1,6 +1,7 @@
 package com.example.projetomayamobile_rpg;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -19,33 +20,32 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class LoginActivity extends AppCompatActivity {
 
-    EditText editEmail , editPassword;
-    Button btnLogin;
-    Button btnForgotPassword;
+    EditText editEmail, editPassword;
+    Button btnLogin, btnForgotPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_activity);
 
-        editEmail = findViewById(R.id.editEmail);
-        editPassword = findViewById(R.id.editPassword);
-        btnLogin = findViewById(R.id.btnLogin);
+        editEmail        = findViewById(R.id.editEmail);
+        editPassword     = findViewById(R.id.editPassword);
+        btnLogin         = findViewById(R.id.btnLogin);
         btnForgotPassword = findViewById(R.id.btnForgotPassword);
 
         btnLogin.setOnClickListener(v -> login());
         btnForgotPassword.setOnClickListener(v -> forgotPassword());
-
     }
 
-    private void login(){
-        String email = editEmail.getText().toString().trim();
+    private void login() {
+        String email    = editEmail.getText().toString().trim();
         String password = editPassword.getText().toString().trim();
 
-        if (email.isEmpty() || password.isEmpty()){
+        if (email.isEmpty() || password.isEmpty()) {
             Toast.makeText(this, "Preencha todos os campos antes de continuar", Toast.LENGTH_SHORT).show();
             return;
         }
+
         ApiService api = RetrofitClient.getInstance().create(ApiService.class);
         LoginRequest request = new LoginRequest(email, password);
 
@@ -54,9 +54,13 @@ public class LoginActivity extends AppCompatActivity {
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
                 if (response.isSuccessful() && response.body() != null) {
 
+                    String token = response.body().token;
+                    salvarToken(token);
+
                     Intent intent = new Intent(LoginActivity.this, DashboardActivity.class);
                     startActivity(intent);
                     finish();
+
                 } else {
                     Toast.makeText(LoginActivity.this, "Email ou senha incorretos", Toast.LENGTH_SHORT).show();
                 }
@@ -68,6 +72,11 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
+    private void salvarToken(String token) {
+        SharedPreferences prefs = getSharedPreferences("maya_prefs", MODE_PRIVATE);
+        prefs.edit().putString("jwt_token", token).apply();
+    }
+
     private void forgotPassword() {
         Intent intent = new Intent(LoginActivity.this, ForgotPasswordActivity.class);
         startActivity(intent);

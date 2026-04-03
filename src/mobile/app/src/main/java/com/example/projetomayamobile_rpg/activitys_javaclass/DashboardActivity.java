@@ -1,10 +1,11 @@
-package com.example.projetomayamobile_rpg;
+package com.example.projetomayamobile_rpg.activitys_javaclass;
 
 import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.projetomayamobile_rpg.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class DashboardActivity extends AppCompatActivity {

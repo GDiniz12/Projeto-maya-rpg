@@ -1,7 +1,9 @@
-package com.example.projetomayamobile_rpg;
+package com.example.projetomayamobile_rpg.activitys_javaclass;
 
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.projetomayamobile_rpg.R;
 
 public class ExercisesActivity extends AppCompatActivity {
 

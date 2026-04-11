@@ -1,21 +1,23 @@
-package com.example.projetomayamobile_rpg;
+package com.example.projetomayamobile_rpg.activitys_javaclass;
 
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class MessageActivity extends AppCompatActivity {
+import com.example.projetomayamobile_rpg.R;
+
+public class ExercisesActivity extends AppCompatActivity {
     BottomNavigationView bottomNav;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.message_activity);
+        setContentView(R.layout.exercises_activity);
 
         bottomNav = findViewById(R.id.bottomNav);
 
-        bottomNav.setSelectedItemId(R.id.menu_message);
+        bottomNav.setSelectedItemId(R.id.menu_exercises);
 
         bottomNav.setOnItemSelectedListener(item -> {
             int id = item.getItemId();
@@ -25,7 +27,6 @@ public class MessageActivity extends AppCompatActivity {
                 return true;
             }
             if (id == R.id.menu_exercises) {
-                startActivity(new Intent(this, ExercisesActivity.class));
                 return true;
             }
             if (id == R.id.menu_history) {
@@ -33,6 +34,7 @@ public class MessageActivity extends AppCompatActivity {
                 return true;
             }
             if (id == R.id.menu_message) {
+                startActivity(new Intent(this, MessageActivity.class));
                 return true;
             }
             if (id == R.id.menu_profile) {
@@ -42,5 +44,4 @@ public class MessageActivity extends AppCompatActivity {
             return false;
         });
     }
-
 }

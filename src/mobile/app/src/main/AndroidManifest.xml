@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProjetoMayaMobileRPG">
         <activity
-            android:name=".LoginActivity"
+            android:name=".activitys_javaclass.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,16 +20,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ForgotPasswordActivity"></activity>
-        <activity android:name=".ForgotPasswordSequelActivity"></activity>
-        <activity android:name=".ForgotPasswordCompletedActivity"></activity>
-        <activity android:name=".LgpdTermActivity"></activity>
-        <activity android:name=".DashboardActivity"/>
-        <activity android:name=".ExercisesActivity"></activity>
-        <activity android:name=".ProfileActivity"/>
-        <activity android:name=".MessageActivity"/>
-        <activity android:name=".HistoryActivity"/>
-        <activity android:name=".LgpdProfileActivity"/>
+        <activity android:name=".activitys_javaclass.ForgotPasswordActivity"></activity>
+        <activity android:name=".activitys_javaclass.ForgotPasswordSequelActivity"></activity>
+        <activity android:name=".activitys_javaclass.ForgotPasswordCompletedActivity"></activity>
+        <activity android:name=".activitys_javaclass.LgpdTermActivity"></activity>
+        <activity android:name=".activitys_javaclass.DashboardActivity"/>
+        <activity android:name=".activitys_javaclass.ExercisesActivity"></activity>
+        <activity android:name=".activitys_javaclass.AlongamentoCervicalActivity"></activity>
+        <activity android:name=".activitys_javaclass.RespiracaoDiafragmaticaActivity"></activity>
+        <activity android:name=".activitys_javaclass.FortalecimentoLombarActivity"></activity>
+        <activity android:name=".activitys_javaclass.ProfileActivity"/>
+        <activity android:name=".activitys_javaclass.MessageActivity"/>
+        <activity android:name=".activitys_javaclass.HistoryActivity"/>
+        <activity android:name=".activitys_javaclass.LgpdProfileActivity"/>
     </application>
 
     <uses-permission android:name="android.permission.INTERNET"></uses-permission>

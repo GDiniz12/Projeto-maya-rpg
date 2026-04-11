@@ -2,8 +2,10 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:context=".activitys_javaclass.ExercisesActivity"
     android:background="@color/lightgrey">
 
     <ScrollView
@@ -261,7 +263,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Técnica respiratória utilizada para  promover relaxamento"
+                    android:text="Técnica respiratória utilizada para promover relaxamento"
                     android:fontFamily="@font/roboto_medium"
                     android:textSize="15sp"
                     android:textColor="@color/grey"

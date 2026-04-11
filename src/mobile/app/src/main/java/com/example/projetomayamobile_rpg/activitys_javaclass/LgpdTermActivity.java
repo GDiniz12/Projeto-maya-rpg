@@ -1,4 +1,4 @@
-package com.example.projetomayamobile_rpg;
+package com.example.projetomayamobile_rpg.activitys_javaclass;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -7,6 +7,8 @@ import android.widget.Button;
 import android.widget.CheckBox;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.projetomayamobile_rpg.R;
 
 public class LgpdTermActivity extends AppCompatActivity {
         Button btnAcceptTerms;

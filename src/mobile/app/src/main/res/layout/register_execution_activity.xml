@@ -46,7 +46,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:background="@drawable/rounded"
             android:layout_margin="10dp"
-            android:padding="10dp">
+            android:padding="10dp"
+            android:elevation="4dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -79,7 +80,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:background="@drawable/rounded"
         android:layout_marginHorizontal="10dp"
-        android:padding="10dp">
+        android:padding="10dp"
+        android:elevation="4dp">
 
         <TextView
             android:layout_width="wrap_content"

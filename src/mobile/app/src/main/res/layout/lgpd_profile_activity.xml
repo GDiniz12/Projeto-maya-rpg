@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/lightgrey"
-    tools:context=".LgpdTermActivity">
+    tools:context=".activitys_javaclass.LgpdProfileActivity">
 
     <LinearLayout
         android:id="@+id/cardLgpd"

@@ -33,10 +33,6 @@ public class DashboardActivity extends AppCompatActivity {
                 startActivity(new Intent(this, HistoryActivity.class));
                 return true;
             }
-            if (id == R.id.menu_message) {
-                startActivity(new Intent(this, MessageActivity.class));
-                return true;
-            }
             if (id == R.id.menu_profile) {
                 startActivity(new Intent(DashboardActivity.this, ProfileActivity.class));
                 return true;

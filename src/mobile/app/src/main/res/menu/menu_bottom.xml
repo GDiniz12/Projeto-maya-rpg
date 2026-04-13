@@ -16,11 +16,6 @@
         android:icon="@drawable/ic_history"/>
 
     <item
-        android:id="@+id/menu_message"
-        android:title="Mensagens"
-        android:icon="@drawable/ic_chat"/>
-
-    <item
         android:id="@+id/menu_profile"
         android:title="Perfil"
         android:icon="@drawable/ic_profile"/>

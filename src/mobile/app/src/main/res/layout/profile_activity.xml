@@ -56,7 +56,7 @@
                     android:id="@+id/tvProfileName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Giovanni Giosepe"
+                    android:text="Josh Johnsons"
                     android:textColor="@color/white"
                     android:textSize="18sp"
                     android:fontFamily="@font/roboto_medium"
@@ -114,7 +114,7 @@
                             android:id="@+id/tvProfileEmail"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="golden.experience@email.com"
+                            android:text="JOshJOhnsons@email.com"
                             android:textSize="14sp"
                             android:fontFamily="@font/roboto_medium"/>
                     </LinearLayout>

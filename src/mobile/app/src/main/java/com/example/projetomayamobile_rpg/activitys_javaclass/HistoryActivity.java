@@ -33,10 +33,6 @@ public class HistoryActivity extends AppCompatActivity {
             if (id == R.id.menu_history) {
                 return true;
             }
-            if (id == R.id.menu_message) {
-                startActivity(new Intent(this, MessageActivity.class));
-                return true;
-            }
             if (id == R.id.menu_profile) {
                 startActivity(new Intent(this, ProfileActivity.class));
                 return true;

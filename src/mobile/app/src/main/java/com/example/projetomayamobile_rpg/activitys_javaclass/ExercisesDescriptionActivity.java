@@ -5,11 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.projetomayamobile_rpg.R;
 
-public class FortalecimentoLombarActivity extends AppCompatActivity {
+public class ExercisesDescriptionActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fortalecimento_lombar_activity);
+        setContentView(R.layout.exercises_description_activity);
     }
 }

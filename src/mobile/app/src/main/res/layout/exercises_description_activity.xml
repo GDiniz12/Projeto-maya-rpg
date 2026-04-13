@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activitys_javaclass.AlongamentoCervicalActivity"
+    tools:context=".activitys_javaclass.ExercisesDescriptionActivity"
     android:background="@color/lightgrey">
 
     <ScrollView
@@ -29,10 +29,10 @@
                 android:padding="10dp">
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnBackFortalecimentoLombar"
+                    android:id="@+id/btnBackAlongamentoCervical"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Fortalecimento Lombar"
+                    android:text="Alongamento Cervical"
                     android:textColor="@color/black"
                     app:icon="@drawable/ic_arrow_back"
                     app:iconTint="@color/black"
@@ -47,10 +47,10 @@
                     android:id="@+id/imageView2"
                     android:layout_width="match_parent"
                     android:layout_height="300dp"
-                    app:srcCompat="@drawable/fortalecimento_lombar"
+                    app:srcCompat="@drawable/alongamento_cervical"
                     android:background="@drawable/rounded"
                     android:layout_marginTop="10dp"
-                    android:padding="10dp" />
+                    android:padding="10dp"/>
 
             </LinearLayout>
 
@@ -86,7 +86,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="15 Repetições"
+                        android:text="10 Minutos"
                         android:textSize="14sp"
                         android:textColor="@color/black"
                         android:layout_marginStart="4dp"/>
@@ -123,7 +123,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="1x ao dia"
+                        android:text="3x ao dia"
                         android:textSize="14sp"
                         android:textColor="@color/black"
                         android:layout_marginStart="4dp"/>
@@ -153,7 +153,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Fortalecimento da musculatura cervical focando na melhora da postura e redução das dores"
+                    android:text="Alongamento suave da musculatura do pescoço para aliviar a tensão e melhorar a mobilidade"
                     android:textColor="@color/grey"
                     android:fontFamily="@font/roboto_medium"
                     android:textSize="16sp"
@@ -164,7 +164,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:background="@drawable/rounded"
                 android:padding="10dp"
@@ -199,11 +199,10 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Deite-se em uma superfície plana com as costas reta"
+                        android:text="Sente-se em uma cadeira com as costas retas"
                         android:textSize="16sp"
                         android:layout_marginStart="10dp"
                         android:textColor="@color/grey"/>
-
 
                 </LinearLayout>
 
@@ -226,7 +225,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Constraia levemente o abdômen"
+                        android:text="Incline lentamente a cabeça para o lado direito, aproximando a orelha do ombro"
                         android:textSize="16sp"
                         android:layout_marginStart="10dp"
                         android:textColor="@color/grey"/>
@@ -252,7 +251,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Eleve lentamenete o peito do chão, mantendo o pescoço alinhado com a coluna"
+                        android:text="Mantenha por 15-20 segundos"
                         android:textSize="16sp"
                         android:layout_marginStart="10dp"
                         android:textColor="@color/grey"/>
@@ -278,7 +277,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Mantenha a posição por 5 a 10 segundos, sem prender a respiração"
+                        android:text="Retorne à posição inicial e repita para o lado esquerdo"
                         android:textSize="16sp"
                         android:layout_marginStart="10dp"
                         android:textColor="@color/grey"/>
@@ -304,7 +303,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Retorne lentamento à posição inicial"
+                        android:text="Realize 3 repetições de cada lado"
                         android:textSize="16sp"
                         android:layout_marginStart="10dp"
                         android:textColor="@color/grey"/>
@@ -314,7 +313,7 @@
             </LinearLayout>
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnRegisterFortalecimentoLombar"
+                android:id="@+id/btnRegisterAlongamentoCervical"
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
                 android:text="Registrar Execução"
@@ -323,7 +322,7 @@
                 android:background="@drawable/rounded_button"
                 app:backgroundTint="@null"
                 android:textSize="17sp"
-                android:layout_margin="10dp" />
+                android:layout_margin="10dp"/>
 
         </LinearLayout>
 

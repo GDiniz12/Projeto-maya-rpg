@@ -10,7 +10,7 @@ import com.example.projetomayamobile_rpg.R;
 
 public class ForgotPasswordCompletedActivity extends AppCompatActivity {
 
-    Button btnReturnLogin;
+    Button btnReturnLoginForgotPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,9 +18,9 @@ public class ForgotPasswordCompletedActivity extends AppCompatActivity {
         setContentView(R.layout.forgot_password_completed_activity);
 
 
-        btnReturnLogin = findViewById(R.id.btnReturnLogin);
+        btnReturnLoginForgotPassword = findViewById(R.id.btnReturnLoginForgotPassword);
 
-        btnReturnLogin.setOnClickListener(v -> {
+        btnReturnLoginForgotPassword.setOnClickListener(v -> {
             startActivity(new Intent(ForgotPasswordCompletedActivity.this, LoginActivity.class));
             finish();
         });

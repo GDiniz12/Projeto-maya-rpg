@@ -21,6 +21,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".activitys_javaclass.ChangePasswordProfileActivity"></activity>
+        <activity android:name=".activitys_javaclass.ChangePasswordProfileCompletedActivity"></activity>
         <activity android:name=".activitys_javaclass.DashboardActivity"/>
         <activity android:name=".activitys_javaclass.ExercisesActivity"></activity>
         <activity android:name=".activitys_javaclass.ExercisesDescriptionActivity"></activity>

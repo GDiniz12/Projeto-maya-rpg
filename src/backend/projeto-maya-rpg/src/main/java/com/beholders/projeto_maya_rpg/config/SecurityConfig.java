@@ -20,9 +20,8 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                // Desabilita a proteção CSRF (necessário para APIs REST que recebem POST/PUT)
+                .cors(cors -> cors.configurationSource(corsConfigurationSource()))
                 .csrf(csrf -> csrf.disable())
-                // Libera TODAS as rotas provisoriamente para podermos testar a criação e o login
                 .authorizeHttpRequests(auth -> auth
                         .anyRequest().permitAll()
                 );
